@@ -2,35 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define PASS_MARK 40
-
-// Define the Student structure
-typedef struct {
-    int roll_number;
-    char name[50];
-    float marks;
-    char status[10];
-} Student;
-
-// Function prototypes
-Student* add_student(Student* student_list, int* student_count);
-Student* delete_student(Student* student_list, int* student_count, int roll_number);
-void update_student(Student* student_list, int student_count, int roll_number);
-void display_all_students(Student* student_list, int student_count);
-void main_menu(Student* student_list, int* student_count);
-Student* resize_student_array(Student* student_list, int new_size);
-int find_student_by_roll(Student* student_list, int student_count, int roll_number);
 
 int main() {
-    int student_count = 0;
-    Student* student_list = NULL;
-
-    // Start the main menu
-    main_menu(student_list, &student_count);
-
-    return 0;
-}
-
 // Function to add a student to the list
 Student* add_student(Student* student_list, int* student_count) {
     // Resize the student array to add a new student
@@ -80,33 +53,6 @@ void update_student(Student* student_list, int student_count, int roll_number) {
 
     // Update the pass/fail status based on new marks
     strcpy(student_list[index].status, (student_list[index].marks >= PASS_MARK) ? "Pass" : "Fail");
-}
-
-// Function to resize the student array dynamically
-Student* resize_student_array(Student* student_list, int new_size) {
-    return (Student*) realloc(student_list, new_size * sizeof(Student));
-}
-
-// Function to find a student by roll number
-int find_student_by_roll(Student* student_list, int student_count, int roll_number) {
-    for (int i = 0; i < student_count; i++) {
-        if (student_list[i].roll_number == roll_number) {
-            return i;
-        }
-    }
-    return -1; // Return -1 if student is not found
-}
-
-// Function to display all students
-void display_all_students(Student* student_list, int student_count) {
-    printf("\n--- Student Records ---\n");
-    for (int i = 0; i < student_count; i++) {
-        printf("Roll Number: %d, Name: %s, Marks: %.2f, Status: %s\n",
-               student_list[i].roll_number,
-               student_list[i].name,
-               student_list[i].marks,
-               student_list[i].status);
-    }
 }
 
 // Main menu function

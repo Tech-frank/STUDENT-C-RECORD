@@ -1,0 +1,18 @@
+{
+  "configurations": [
+      {
+          "name": "Win32",
+          "includePath": [
+              "${workspaceFolder}/**", // Your project files
+              "C:/MinGW/include", // MinGW standard includes
+              "C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/Include", // Windows SDK
+          ],
+          "defines": [],
+          "compilerPath": "C:/MinGW/bin/gcc.exe",
+          "cStandard": "c11",
+          "cppStandard": "c++17",
+          "intelliSenseMode": "gcc-x64"
+      }
+  ],
+  "version": 4
+}

@@ -63,6 +63,12 @@ void main_exit_system(Student* student_list, int student_count); // Saves data a
 
 // Implementations
 
+int main() {
+    main_init_system();
+    return 0;
+}
+
+
 // User Interface & Greeting (Person 1)
 void ui_greet_user() {
     char name[50];
